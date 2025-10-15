@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Czech Corrector - Options</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font: 14px system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            padding: 20px;
+            max-width: 720px;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: end;
+        }
+
+        .hint {
+            color: #555;
+            font-size: 12px;
+        }
+
+        button {
+            padding: 8px 12px;
+        }
+
+        pre {
+            background: #f6f6f6;
+            padding: 10px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>⚙️ Czech Corrector – Options</h1>
+    <p class="hint">Your key is stored via <code>chrome.storage.sync</code> and used locally from your browser.</p>
+
+    <label>OpenAI API Key</label>
+    <input id="apiKey" type="password" placeholder="sk-..." autocomplete="off" />
+
+    <label>Model</label>
+    <select id="model">
+        <option value="gpt-4o-mini">gpt-4o-mini (best value)</option>
+        <option value="gpt-5-mini">gpt-5-mini (higher quality)</option>
+        <option value="gpt-5-nano">gpt-5-nano (cheapest)</option>
+    </select>
+
+    <label><input id="debug" type="checkbox" /> Enable debug logging</label>
+
+    <div class="row" style="margin-top:16px;">
+        <button id="save">Save</button>
+        <button id="test">Test call</button>
+    </div>
+
+    <pre id="out" style="margin-top:16px;"></pre>
+
+    <script type="module" src="/src/options.ts"></script>
+</body>
+
+</html>
